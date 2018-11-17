@@ -1,0 +1,63 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	background-color: #f5f5e2e0;
+	
+}
+body.wait *, body.wait
+{
+	cursor: progress !important;
+}
+.itemChuyenMuc{
+	cursor:pointer;
+}
+.itemChuyenMuc:hover{
+	color: blue;
+}
+#client-nav{
+	background-color: #D5EAC3;
+}
+.row-wrap{
+	height: 100%;
+	
+}
+.client-left{
+	height: 100%;
+}
+.client-right{
+	height: 100%;
+}
+.chude{
+	color: #D5B54E;
+}
+.de-body{
+	color: #0082BF;
+}
+#client-carousel img{
+	width: 100%;
+}
+.colorCarousel{
+	color: black;
+	font-size: 55px;
+}
+#client-carousel ul li{
+	background-color: black;
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+#client-carousel ul li.active{
+	background-color: #02510e;
+}
+#time-excute{
+	position: fixed;
+	right: 5%;
+	top: 20%;
+	background: white;
+}

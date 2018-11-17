@@ -8,10 +8,10 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2018 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -102,6 +102,8 @@
 <!-- AdminLTE App -->
 <script src="jsp/admin/vendor/dist/js/adminlte.min.js"></script>
 
+<script src="jsp/admin/vendor/bower_components/ckeditor/ckeditor.js"></script>
+<script src="jsp/admin/vendor/dist/js/app.js"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->

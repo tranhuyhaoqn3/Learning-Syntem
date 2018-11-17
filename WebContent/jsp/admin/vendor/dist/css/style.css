@@ -1,1 +1,32 @@
-chung css 
+.text-red{
+	color:red;
+}
+.card-khoahoc{
+	position: relative;
+	height: 164px;
+}
+.neo-bottom{
+	position: absolute;
+	bottom: 0;	
+}
+#time-excute{
+	position: fixed;
+	right: 5%;
+	top: 20%;
+	background: white;
+}
+.line input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dad8d3;
+    border-radius: 3px;
+    line-height: 14px;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+.line {
+	margin: 10px 0px 10px 0px
+}
+#btnsave{
+	 width: 100%;
+}

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
         name = "kingServlet",
-        urlPatterns = {"/king"},
+        urlPatterns = {"/QuanLiSinhVien"},
         loadOnStartup = 1
 )
 public class KingServlet extends HttpServlet {
@@ -21,7 +21,7 @@ public class KingServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		req.getRequestDispatcher("/admin/khang.jsp").forward(req, resp);
+		req.getRequestDispatcher("/admin/main/student.jsp").forward(req, resp);
 	}
 
 }

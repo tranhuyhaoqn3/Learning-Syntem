@@ -14,6 +14,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="jsp/admin/vendor/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="jsp/admin/vendor/bower_components/font-awesome/css/font-awesome.min.css">
+  
+    <link rel="stylesheet" href="jsp/admin/vendor/dist/css/style.css">
+    
   <!-- Ionicons -->
   <link rel="stylesheet" href="jsp/admin/vendor/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
@@ -22,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="jsp/admin/vendor/dist/css/skins/skin-blue.min.css">
-
+  <!-- bootstrap wysihtml5 - text editor -->
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -261,9 +264,10 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         
-        <li class="active"><a href="#"><i class="fa fa-graduation-cap"></i> <span>Sinh Viên</span></a></li>
-        <li><a href="#"><i class="fa fa-home"></i> <span>Lớp học</span></a></li>
-        <li><a href="#"><i class="fa fa-question"></i> <span>Câu hỏi</span></a></li>
+        <li class="active"><a href="QuanLiSinhVien"><i class="fa fa-graduation-cap"></i> <span>Sinh Viên</span></a></li>
+        <li><a href="QuanLyKhoaHoc"><i class="fa fa-home"></i> <span>Khóa học</span></a></li>
+        <li><a href="questionBank"><i class="fa fa-question"></i> <span>Ngân hàng câu hỏi</span></a></li>
+         <li><a href="questionBank"><i class="fa fa-question"></i> <span>Soạn đề thi</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Import dữ liệu</span>
             <span class="pull-right-container">
@@ -283,20 +287,3 @@ desired effect
     </section>
     <!-- /.sidebar -->
   </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content container-fluid">
