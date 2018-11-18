@@ -1,4 +1,4 @@
-package test;
+package Test;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +21,8 @@ public class UserServlet extends HttpServlet {
 		
 		ArrayList<abcdDTO>testList = null;
 		try {
-			int testData= DataAccess.ExcuteNonQuery("Insert into abcd values(?,?,?,?)", "C",5,false,new Date());
+			int testData= DataAccess.ExcuteNonQuery("INSERT INTO account (UserName, PassWord,Type)\r\n" + 
+													"VALUES (?,?,?);","qldethi","123456",2);
 
 			testList=new ArrayList<>();
 
