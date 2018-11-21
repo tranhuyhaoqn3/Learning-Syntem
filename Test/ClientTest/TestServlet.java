@@ -20,5 +20,6 @@ public class TestServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("client-left", "Left.jsp");
 		req.getRequestDispatcher("/client/tests.jsp").forward(req, resp);
+		
 	}
 }

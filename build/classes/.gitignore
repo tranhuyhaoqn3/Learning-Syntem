@@ -1,4 +1,3 @@
-/Client/
 /ClientAnswer/
 /ClientClass/
 /ClientQuestion/
@@ -6,3 +5,4 @@
 /DTO/
 /DataAccess/
 /test/
+/MyExtension/
