@@ -1,9 +1,8 @@
-package Test;
+package ClientTest;
+
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,28 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DTO.abcdDTO;
+import com.sun.net.httpserver.HttpServer;
 
-@WebServlet(urlPatterns= {"/User"})
-public class UserServlet extends HttpServlet {
+import DataAccess.DataAccess;
+
+@WebServlet(urlPatterns= {"/Test"})
+public class TestServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("client-left", "Left.jsp");
-		
-		ArrayList<abcdDTO>testList = null;
-		try {
-			int testData= DataAccess.ExcuteNonQuery("INSERT INTO account (UserName, PassWord,Type)\r\n" + 
-													"VALUES (?,?,?);","qldethi","123456",2);
-
-			testList=new ArrayList<>();
-
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		if(!testList.isEmpty()) {
-			int a=1;
-		}
 		req.getRequestDispatcher("/client/tests.jsp").forward(req, resp);
 	}
 }

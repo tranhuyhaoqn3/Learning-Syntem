@@ -18,15 +18,5 @@
       <include-coda>/jsp/admin/share/footer.jsp</include-coda>
       <default-content-type>text/html</default-content-type>
     </jsp-property-group>
-    <!-- 
-    <jsp-property-group>
-    	<url-pattern>/client/*</url-pattern>
-    	<page-encoding>UTF-8</page-encoding>
-    	<include-prelude>/jsp/client/share/header.jsp</include-prelude>
-    	<include-coda>/jsp/client/share/footer.jsp</include-coda>
-    	<default-content-type>text/html</default-content-type>
-    </jsp-property-group>
-     -->
-    
   </jsp-config>
 </web-app>
