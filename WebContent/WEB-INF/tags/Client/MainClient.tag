@@ -28,12 +28,9 @@
 					</div>
 				</form>
 				<ul class="nav navbar-nav">
-					<li class="nav-item active"><a class="nav-link" href="#">Trang
-							chủ<span class="sr-only">(current)</span>
+					<li class="nav-item active"><a class="nav-link" href="#">Tên User<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Đăng
-							nhập</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Đăng ký</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Đăng xuất</a></li>
 				</ul>
 			</div>
 		</nav>

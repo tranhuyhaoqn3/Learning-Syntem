@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DTO.UserDTO;
 import DataAccess.DataAccess;
+import Model.UserModel;
 
 @WebServlet(urlPatterns= {"/LoginSubmit"})
 public class LoginSubmit extends HttpServlet{
@@ -22,26 +23,17 @@ public class LoginSubmit extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userName=req.getParameter("UserName");
 		String passWord=req.getParameter("PassWord");
-		try {
-			List<UserDTO>userDTOs=new ArrayList<UserDTO>();
-			ResultSet rSet=DataAccess.ExcuteQuery("Select * from user where UserName=? And PassWord=?", userName,passWord);
-			while(rSet.next()) {
-				userDTOs.add(new UserDTO(rSet.getInt("ID"),rSet.getString("Name"),rSet.getInt("Age"),userName,passWord,rSet.getInt("TypeAccount")));
-			}
-			if (userDTOs.size()>0) {
-				switch (userDTOs.get(0).TypeAccount) {
-				case 0://Thi sinh
-					req.setAttribute("ID", userDTOs.get(0).ID);
-					resp.sendRedirect("./Test?ID="+userDTOs.get(0).ID+"");
-					return;
+		List<UserDTO>userDTOs=UserModel.GetUser(userName, passWord);
+		if (userDTOs.size()>0) {
+			switch (userDTOs.get(0).TypeAccount) {
+			case 0://Thi sinh
+				req.setAttribute("ID", userDTOs.get(0).ID);
+				resp.sendRedirect("./MyClass?ID="+userDTOs.get(0).ID+"");
+				return;
 
-				default:
-					break;
-				}
+			default:
+				break;
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		super.doPost(req, resp);

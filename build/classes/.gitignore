@@ -1,8 +1,7 @@
-/ClientAnswer/
-/ClientClass/
-/ClientQuestion/
 /ClientTest/
-/DTO/
-/DataAccess/
 /test/
-/MyExtension/
+/ClientQuestion/
+/ClientClass/
+/DAO/
+/UserDAO/
+/Model/

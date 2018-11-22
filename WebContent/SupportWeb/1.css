@@ -13,6 +13,17 @@ body.wait *, body.wait
 {
 	cursor: progress !important;
 }
+.card-khoahoc{
+	position: relative;
+	height: 164px;
+}
+.neo-bottom{
+	position: absolute;
+	bottom: 0;	
+}
+.text-red{
+	color: red;
+}
 .itemChuyenMuc{
 	cursor:pointer;
 }
