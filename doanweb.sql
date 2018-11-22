@@ -57,11 +57,12 @@ CREATE TABLE `class` (
   `FullName` varchar(1000) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `Description` varchar(1000) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `ShortName` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
-  `StartDate` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
-  `EndDate` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `StartDate` datetime DEFAULT NULL,
+  `EndDate` datetime DEFAULT NULL,
   `Deleted` bit(1) DEFAULT b'0',
+  `Image` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 /*Table structure for table `class_test` */
 
@@ -69,9 +70,9 @@ DROP TABLE IF EXISTS `class_test`;
 
 CREATE TABLE `class_test` (
   `IDClass` int(11) NOT NULL,
-  `IDChildTest` int(11) NOT NULL,
+  `IDTest` int(11) NOT NULL,
   `ExamTime` int(11) DEFAULT NULL,
-  PRIMARY KEY (`IDClass`,`IDChildTest`)
+  PRIMARY KEY (`IDClass`,`IDTest`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 /*Table structure for table `question` */
@@ -129,7 +130,7 @@ CREATE TABLE `test` (
   `TimeStart` datetime DEFAULT NULL,
   `TimeEnd` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `user` */
 
@@ -146,7 +147,7 @@ CREATE TABLE `user` (
   `Address` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `Image` varchar(1000) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 /*Table structure for table `user_class` */
 
