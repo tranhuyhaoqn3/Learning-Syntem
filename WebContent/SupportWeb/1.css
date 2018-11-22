@@ -15,7 +15,8 @@ body.wait *, body.wait
 }
 .card-khoahoc{
 	position: relative;
-	height: 164px;
+	height: 160%;
+	margin:unset!important;
 }
 .neo-bottom{
 	position: absolute;

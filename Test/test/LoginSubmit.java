@@ -21,21 +21,25 @@ public class LoginSubmit extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String userName=req.getParameter("UserName");
-		String passWord=req.getParameter("PassWord");
-		List<UserDTO>userDTOs=UserModel.GetUser(userName, passWord);
-		if (userDTOs.size()>0) {
-			switch (userDTOs.get(0).TypeAccount) {
-			case 0://Thi sinh
-				req.setAttribute("ID", userDTOs.get(0).ID);
-				resp.sendRedirect("./MyClass?ID="+userDTOs.get(0).ID+"");
-				return;
+		try {
+			String userName=req.getParameter("UserName");
+			String passWord=req.getParameter("PassWord");
+			List<UserDTO>userDTOs=UserModel.GetUser(userName, passWord);
+			if (userDTOs.size()>0) {
+				switch (userDTOs.get(0).TypeAccount) {
+				case 0://Thi sinh
+					req.setAttribute("ID", userDTOs.get(0).ID);
+					req.getRequestDispatcher("./MyClass").forward(req, resp);
+					return;
 
-			default:
-				break;
+				default:
+					break;
+				}
 			}
+		} catch (Exception e) {
+			resp.sendRedirect("./LoginServlet");
 		}
 		
-		super.doPost(req, resp);
+		
 	}
 }
