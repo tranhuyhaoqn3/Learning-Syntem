@@ -15,7 +15,7 @@ public class UserModel {
 		try {
 			rSet = DataAccess.ExcuteQuery("Select * from user where UserName=? And PassWord=?", userName,passWord);
 			while(rSet.next()) {
-				userDTOs.add(new UserDTO(rSet.getInt("ID"),rSet.getString("Name"),rSet.getInt("Age"),userName,passWord,rSet.getInt("TypeAccount")));
+				userDTOs.add(new UserDTO(rSet.getInt("ID"),rSet.getString("Name"),rSet.getInt("DOB"),userName,passWord,rSet.getInt("TypeAccount")));
 			}
 			return userDTOs;
 		} catch (SQLException e) {
