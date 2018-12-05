@@ -1,6 +1,7 @@
 <%@tag description="MainClient" pageEncoding="UTF-8"%>
 <%@attribute name="clientleft" fragment="true"%>
 <%@attribute name="clientright" fragment="true"%>
+<%@attribute name="clientuser" fragment="true"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,24 +15,13 @@
 				data-target="#collapsibleNavbar">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div
-				class="collapse navbar-collapse justify-content-between mt-3 mt-sm-0"
-				id="collapsibleNavbar">
-				<form class="form-inline" action="#">
-					<div class="input-group">
-						<input class="form-control" type="text"
-							placeholder="Nhâp nội dung tim kiếm">
-						<button class="btn btn-secondary btnFind input-group-append"
-							type="button">
-							<i class="fa fa-search"></i>
-						</button>
-					</div>
-				</form>
+			<div class="collapse navbar-collapse justify-content-end mt-3 mt-sm-0" id="collapsibleNavbar">
 				<ul class="nav navbar-nav">
-					<li class="nav-item active"><a class="nav-link" href="#">Tên User<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Đăng xuất</a></li>
+				<li class="nav-item active"><a class="nav-link" href="./InfoClient?ID=${UserName.getiD() }"><i class="fa fa-user"> </i><jsp:invoke fragment="clientuser"/><span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="./LogoutClient">Đăng xuất</a></li>
 				</ul>
+				
 			</div>
 		</nav>
 	</div>
@@ -69,13 +59,13 @@
 		</div>
 	</div>
 	<div class="row row-wrap">
-		<div class="client-left col-lg-2 d-none d-lg-block mt-2">
+		<div class="client-left col-lg-2 d-none d-lg-block mt-4 pt-5 pl-4"">
 			<jsp:invoke fragment="clientleft"/>
 		</div>
 		<div class="client-center col-lg-8 col-xs-12">
 			<jsp:doBody />
 		</div>
-		<div class="client-right col-lg-2 d-none d-lg-block mt-2">
+		<div class="client-right col-lg-2 d-none d-lg-block mt-4 pt-5 pl-4"">
 			<jsp:invoke fragment="clientright"/>
 		</div>
 	</div>

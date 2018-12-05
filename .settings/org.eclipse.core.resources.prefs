@@ -1,5 +1,12 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//Test/test/QuestionBankServlet.java=UTF-8
 encoding//Test/test/SubjectServlet.java=UTF-8
+||||||| merged common ancestors
+=======
+encoding//Test/ClientAnswer/SaveAnswerClient.java=UTF-8
+encoding//Test/ClientQuestion/QuestionServlet.java=UTF-8
+encoding//Test/ClientTest/InfoClient.java=UTF-8
+>>>>>>> e2e89a307aef587b89e62a905f6b8f33a4e665dc
 encoding//WebContent/WEB-INF/tags/Client/MainClient.tag=UTF-8
 encoding//WebContent/admin/sub/partialQuestionBank.jsp=UTF-8
