@@ -19,7 +19,7 @@ public class UserClassModel {
 				classDTOs.add(new UserClassDTO(rSet.getInt("IDUser"), rSet.getInt("IDClass")));
 			}
 			return classDTOs;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			return null;
 		}
 		

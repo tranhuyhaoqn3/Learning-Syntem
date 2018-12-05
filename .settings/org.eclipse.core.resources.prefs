@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//Test/ClientAnswer/SaveAnswerClient.java=UTF-8
+encoding//Test/ClientQuestion/QuestionServlet.java=UTF-8
+encoding//Test/ClientTest/InfoClient.java=UTF-8
 encoding//WebContent/WEB-INF/tags/Client/MainClient.tag=UTF-8

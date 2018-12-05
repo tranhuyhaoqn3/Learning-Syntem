@@ -1,106 +1,180 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags/Client" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags/Client"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
+<c:set var="clientLeft" value='${requestScope["client-left"] }' />
+<c:set var="clientRight" value='${requestScope["client-right"] }' />
 <t:MainPractise>
-<h1> Nội dung chương 5</h1>
- <div class="card">
-    <div class="card-block p-3">
-      <h4 class="card-title">Câu 1: <b> 1+1=?</b></h4>
-      <div class="radio">
-        <label>
-          <input type="radio" name="cau1" id="cau1A" value="option1" checked>
-         1
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="cau1" id="Cau1B" value="option1">
-          2
-        </label>
-      </div>
-     
-    </div>
-  </div>
-   <div class="card mt-3">
-    <div class="card-block p-3">
-      <h4 class="card-title">Câu 2: <b> 3+1=?</b></h4>
-      <div class="radio">
-        <label>
-          <input type="radio" name="cau2" id="cau21" value="option1" checked>
-         4
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="cau2" id="cau21" value="option1">
-          5
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="cau2" id="cau21" value="option1">
-          6
-        </label>
-      </div>
-       <div class="radio">
-        <label>
-          <input type="radio" name="cau2" id="cau21" value="option1">
-          7
-        </label>
-      </div>
-    </div>
-  </div>
-<div id="time-excute">
-  <p>Thời gian còn lại:
-    <b><span id="h"></span> :</b>
-    <b><span id="m"></span> :</b>
-    <b><span id="s"></span></b>
-  </p>
-</div>
-  <a href="" class="btn btn-danger btn-block">Nộp bài</a>
-  <script>
-  	var h=0;
-  	var m=30;
-  	var s=0;
-  	start();
-  	function start()
-	{
+	<jsp:attribute name="clientleft">
+<jsp:include page="${clientLeft}" />
+</jsp:attribute>
+	<jsp:attribute name="clientright">
+<jsp:include page="${clientRight}" />
+</jsp:attribute>
 
+
+	<jsp:attribute name="clientuser">
+<c:out value="${UserName.getName()}" />
+</jsp:attribute>
+
+
+
+
+
+	<jsp:body>
+<div class="p-5 w-100 h-100">
+  <h1>${TestDTO.getName()}</h1>
+  <c:if test="${empty ListQuest}">
+  <h4 class="text-muted">Không có câu hỏi nào</h4>
+</c:if>
+<c:if test="${not empty ListQuest}">
+<span id="time-excute" data-time="${TestDTO.getTime()}"></span>
+    <div
+					class="wrap-question-button d-flex justify-content-between flex-column h-75 w-100 p-5 rounded"
+					style="background-color: white;">
+      <div class="wrap-question h-100 w-100">
+          <c:forEach varStatus="item" begin='0'
+							end="${ListQuest.size()-1}" step="1">
+             <c:if test="${item.index==0 }">
+                <div
+									class="card h-100 w-100 p-5 one-question question-active"
+									data-idquetion="${ListQuest.get(item.index).getiD()}">
+			
+							
+							
+							</c:if>
+                <c:if test="${item.index!=0}">
+                <div class="card h-100 w-100 p-5 one-question"
+									data-idquetion="${ListQuest.get(item.index).getiD()}">
+                
+							
+							
+							
+							
+							</c:if>
+                  
+                    <div class="card-block">
+                      <h2 class="card-title">Câu ${item.index+1}: <b>${ListQuest.get(item.index).getQuestionText()}</b>         </h2>
+                      <c:if
+									test="${empty ListQuest.get(item.index).getAnswerDTOs()}">
+                      <h4 class="text-muted">Câu hỏi không có đáp án</h4>
+                      </c:if>
+                      <c:if
+									test="${not empty ListQuest.get(item.index).getAnswerDTOs()}">
+                          <c:forEach
+										items="${ListQuest.get(item.index).getAnswerDTOs()}"
+										var="answer">
+                          <div class="radio">
+                           <label>
+                             <input type="radio"
+												name="cau${item.index+1}" value="${answer.getiD()}"
+												onclick="CheckRadioClick(this)">
+                             ${answer.getName()}
+                           </label>
+                         </div>
+                          </c:forEach>
+                          </c:if>
+                    </div>
+                    
+                  
+                
+					
+					
+					
+					
+					</div>
+      </c:forEach>
+      </div>
+      <div class="wrap-button d-flex justify-content-around">
+		<c:if test="${ ListQuest.size()!=1}">
+			<button class="btn btn-primary btnPre" onclick="GoPre()">Trước</button>
+			<button class="btn btn-primary btnNext btn-active" onclick="GoNext()">Sau</button>
+		</c:if>          
+      </div>
+    
 		
+		
+		
+		
+		</div>
+</div>
+</c:if>
+<script type="text/javascript">
+	function SendFinish() {
+		$.ajax({
+			type : 'POST',
+			async : false,
+			url : 'FinishedTest',
+			data : {
+				IDChildtest : $('#IDChildtest').val()
+			},
+			success : function(result) {
 
-		if (s === -1){
-			m -= 1;
-			s = 59;
+			},
+			error : function(result) {
+
+			}
+		});
+	}
+	$(window).unload(function() {
+		SendFinish();
+	});
+	function CheckRadioClick(e) {
+
+		$.ajax({
+			url : 'SaveAnswerClient',
+			type : 'POST',
+			data : {
+				IDQuestion : $('.question-active').attr('data-idquetion'),
+				IDChiltest : $('#IDChildtest').val(),
+				IDAnswer : e.value
+			},
+			success : function(result) {
+				if (result == "Error") {
+					alert("Server bị sập vui lòng thử lại");
+					e.checked = false;
+					$('.stt-question').eq($('.question-active').index())
+					.removeClass('stt-question-active');
+				} else {
+					$('.stt-question').eq($('.question-active').index())
+							.addClass('stt-question-active');
+				}
+			},
+			error : function(result) {
+				alert("Mạng không ổn định vui lòng kiểm tra lại");
+				e.checked = false;
+			}
+		});
+	}
+	function GoPre() {
+		var present = $('.question-active');
+		var prev = present.prev();
+		if (prev != null) {
+			present.removeClass('question-active');
+			prev.addClass('question-active');
+			$('.btnPre').addClass('btn-active');
+			$('.btnNext').addClass('btn-active');
+			if (prev.prev().length == 0) {
+				$('.btnPre').removeClass('btn-active');
+			}
 		}
 
-	    // Nếu số phút = -1 tức là đã chạy ngược hết số phút, lúc này:
-	    //  - giảm số giờ xuống 1 đơn vị
-	    //  - thiết lập số phút lại 59
-	    if (m === -1){
-	    	h -= 1;
-	    	m = 59;
-	    }
-
-	    // Nếu số giờ = -1 tức là đã hết giờ, lúc này:
-	    //  - Dừng chương trình
-	    if (h == -1){
-	    	clearTimeout(timeout);
-	    	alert('Hết giờ');
-	    	return false;
-	    }
-
-	    /*BƯỚC 1: HIỂN THỊ ĐỒNG HỒ*/
-	    document.getElementById('h').innerText = h.toString();
-	    document.getElementById('m').innerText = m.toString();
-	    document.getElementById('s').innerText = s.toString();
-
-	    /*BƯỚC 1: GIẢM PHÚT XUỐNG 1 GIÂY VÀ GỌI LẠI SAU 1 GIÂY */
-	    timeout = setTimeout(function(){
-	    	s--;
-	    	start();
-	    }, 1000);
 	}
-	function stop(){
-		clearTimeout(timeout);
+	function GoNext() {
+
+		var present = $('.question-active');
+		var next = present.next();
+		if (next != null) {
+			present.removeClass('question-active');
+			next.addClass('question-active');
+			$('.btnPre').addClass('btn-active');
+			$('.btnNext').addClass('btn-active');
+			if (next.next().length == 0) {
+				$('.btnNext').removeClass('btn-active');
+			}
+		}
 	}
-  </script>
-</t:MainPractise>>
+</script>
+</jsp:body>
+</t:MainPractise>
