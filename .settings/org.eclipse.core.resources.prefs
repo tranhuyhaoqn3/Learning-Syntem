@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//Test/test/QuestionBankServlet.java=UTF-8
+encoding//Test/test/SubjectServlet.java=UTF-8
 encoding//WebContent/WEB-INF/tags/Client/MainClient.tag=UTF-8
+encoding//WebContent/admin/sub/partialQuestionBank.jsp=UTF-8

@@ -1,3 +1,6 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="DTO.Subject"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -43,26 +46,61 @@
 								<div class="box-header with-border">
 									<h3 class="box-title">Loại câu hỏi</h3>
 								</div>
-								<form>
-									<fieldset>
-										<div class="row">
-											<div class="col-xs-2">
-												<input type="button" class="btn btn-success" value="Tạo mới">
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="row">
-												<div class="col-xs-12">
-													<select class="form-control">
-														<option value="math1">Toán cao cấp 1</option>
-														<option value="oop">Lập trình hướng đối tượng</option>
-														<option value="nmlt">Nhập môn lập trình</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</fieldset>
+								<div>
+									<div class="row">
+										<div class="col-xs-12">
+											<select class="form-control" id="sl-subject"
+												name="sl-subject">
+												<%
+													ArrayList<Subject> listSubject = (ArrayList<Subject>) request.getAttribute("listSubject");
+													for (int i = 0; i < listSubject.size(); i++) {
+												%>
+												<option value="<%=listSubject.get(i).getID()%>"><%=listSubject.get(i).getName()%></option>
+												<%
+													}
+												%>
 
+											</select>
+										</div>
+									</div>
+									<p class="badge badge-pill badge-danger col-12">Tổng số câu
+										khó : 10</p>
+									<p class="badge badge-pill badge-danger">Tổng số câu khó :
+										10</p>
+								</div>
+
+								<input type="button" id="create-type" class="btn btn-success"
+									value="Tạo mới" style="margin: 10px 0;">
+								<%
+									String rs = request.getParameter("success");
+									if (rs != null) {
+										int result = Integer.parseInt(request.getParameter("success"));
+
+										if (result <= 0) {
+								%>
+								<div class="bg-danger" id="message">
+									<p>Tạo loại câu hỏi không thành công</p>
+								</div>
+								<%
+									} else {
+								%>
+								<div class="bg-success" id="message">
+									<p>Tạo loại câu hỏi thành công</p>
+								</div>
+								<%
+									}
+									}
+								%>
+								<form action="SubjectServlet?type=addNew" id="form-type"
+									style="display:none;" method="post">
+									<div>
+										<div class="form-group">
+											<label for="txt-question-type">Tên loại câu hỏi</label> <input
+												type="text" id="txt-question-type" name="txt-question-type"
+												class="form-control">
+										</div>
+										<input type="submit" class="btn btn-primary" value="Lưu">
+									</div>
 								</form>
 							</div>
 						</div>
@@ -74,190 +112,7 @@
 								<input type="button" id="create-question" name="create-question"
 									class="btn btn-success" value="Tạo câu hỏi mới"
 									style="margin: 10px 0;">
-								<div class="panel-group" id="accordion">
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<h4 class="panel-title">
-												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse1"> Câu 1. Một trong những nội dung quan
-													trọng của Hội nghị Ianta là:</a>
-											</h4>
-										</div>
-										<div id="collapse1" class="panel-collapse collapse in">
-											<div class="panel-body">
-												<div class="alert alert-info">
-													<input type="radio" name='radio3'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													A. Đàm phán, kí kết các hiệp ước với các nước phát xít bại
-													trận.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio3'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													B. Các nước thắng trận thoả thuận viêc phân chia Đức thành
-													haỉ nước Đông Đức và Tây Đức.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio3'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													C. Ba nước phe Đồng minh bàn bạc, thoả thuận khu vực đóng
-													quân tại các nước nhằm giải giáp quân đội phát xít; phân
-													chia phạm vi ảnh hưởng ở châu Âu và châu Á.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio3'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													D. Các nước phát xít Đức, Italia kí văn kiện đầu hàng phe
-													Đồng minh vô điều kiện.
-												</div>
-												<div class="form-group">
-													<div class="row">
-														<div class="col-xs-10">
-															<input type="text" id="add-answer" class="form-control"
-																name="add-answer" placeholder="Điền câu trả lời">
-														</div>
-														<div class="col-xs-2">
-															<input type="button" class="btn btn-success" value="Add">
-														</div>
-													</div>
-												</div>
-												<input type="button" class="btn btn-success" value="Lưu">
-
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<h4 class="panel-title">
-												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse2"> Câu 2. Những nước nào tham gia Hội
-													nghị Ianta ?</a>
-											</h4>
-										</div>
-										<div id="collapse2" class="panel-collapse collapse">
-											<div class="panel-body">
-												<div class="alert alert-info">
-													<input type="radio" name='radio2'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													A. Anh - Pháp - Mĩ.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio2'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													B. Anh - Mĩ - Liẽn Xô.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio2'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													C. Anh - Pháp - Đức.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio2'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													D. Mĩ - Liên Xô - Trung Quốc.
-												</div>
-												<div class="form-group">
-													<div class="row">
-														<div class="col-xs-10">
-															<input type="text" id="add-answer" class="form-control"
-																name="add-answer" placeholder="Điền câu trả lời">
-														</div>
-														<div class="col-xs-2">
-															<input type="button" class="btn btn-success" value="Add">
-														</div>
-													</div>
-												</div>
-												<input type="button" class="btn btn-success" value="Lưu">
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<h4 class="panel-title">
-												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse3"> Câu 3. Hội nghị Ianta có ảnh hưởng
-													như thế nào đối với thế giới sau chiến tranh ? </a>
-											</h4>
-										</div>
-										<div id="collapse3" class="panel-collapse collapse">
-											<div class="panel-body">
-												<div class="alert alert-info">
-													<input type="radio" name='radio1'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													A. Làm nảy sinh những mâu thuẫn mới giữa các nước đế quốc
-													với các nước đế quốc.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio1'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													B. Đánh dấu sự hình thành một trật tự thế giới mới sau
-													chiến tranh.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio1'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													C. Trở thành khuôn khổ của một trật tự thế giới, từng bước
-													được thiết lập trong những năm 1945 - 1947.
-												</div>
-												<div class="alert alert-info">
-													<input type="radio" name='radio1'> <a href="#"
-														class="close" data-dismiss="alert" aria-label="close"
-														title="close"><i class="fa fa-trash"
-														aria-hidden="true"></i></a> <a href="#" class="close"
-														title="close"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													D. Là sự kiện đánh dấu sự xác lập vai trò thống trị thế
-													giới của chủ nghĩa đế quốc Mĩ.
-												</div>
-												<div class="form-group">
-													<div class="row">
-														<div class="col-xs-10">
-															<input type="text" id="add-answer" class="form-control"
-																name="add-answer" placeholder="Điền câu trả lời">
-														</div>
-														<div class="col-xs-2">
-															<input type="button" class="btn btn-success" value="Add">
-														</div>
-													</div>
-												</div>
-												<input type="button" class="btn btn-success" value="Lưu">
-
-											</div>
-										</div>
-									</div>
-								</div>
+								<div class="panel-group" id="accordion-question"></div>
 							</div>
 							<ul class="pagination">
 								<li class="active"><a href="#">1</a></li>
@@ -270,11 +125,13 @@
 						</div>
 					</div>
 
-
-					<input type="file" id="file" name="file" class="btn btn-success"
+					<form id="form-file" action="questionBank?type=saveFile" enctype='multipart/form-data' method="post">
+						<input type="file" id="file-question" name="file-question" class="btn btn-success"
 						value="Import file">
+					</form>
 				</div>
 				<br>
 			</div>
 		</div>
 	</section>
+			<jsp:include page="../sub/addEditQuestion.jsp"></jsp:include>

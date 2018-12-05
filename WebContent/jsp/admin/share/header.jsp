@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Learning System</title>
+  <title>Exam Online System</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="jsp/admin/vendor/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -26,6 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="jsp/admin/vendor/dist/css/skins/skin-blue.min.css">
   <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="jsp/admin/vendor/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -68,7 +69,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Learning</b>System</span>
+      <span class="logo-lg"><b>ExamOnline</b>System</span>
     </a>
 
     <!-- Header Navbar -->
@@ -119,10 +120,6 @@ desired effect
           <!-- Notifications Menu -->
           <li class="dropdown notifications-menu">
             <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
               <li>
@@ -141,11 +138,6 @@ desired effect
           </li>
           <!-- Tasks Menu -->
           <li class="dropdown tasks-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
             <ul class="dropdown-menu">
               <li class="header">You have 9 tasks</li>
               <li>
@@ -183,7 +175,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="jsp/admin/vendor/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Võ Cao Sơn</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -191,39 +183,18 @@ desired effect
                 <img src="jsp/admin/vendor/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  Quản trị viên hệ thống
                 </p>
               </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Thông tin tài khoản</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
                 </div>
               </li>
             </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -241,7 +212,7 @@ desired effect
           <img src="jsp/admin/vendor/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Võ Cao Sơn</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -264,7 +235,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         
-        <li class="active"><a href="QuanLiSinhVien"><i class="fa fa-graduation-cap"></i> <span>Sinh Viên</span></a></li>
+        <li class="active"><a href="QuanLiSinhVien"><i class="fa fa-graduation-cap"></i> <span>Người dùng</span></a></li>
         <li><a href="QuanLyKhoaHoc"><i class="fa fa-home"></i> <span>Khóa học</span></a></li>
         <li><a href="questionBank"><i class="fa fa-question"></i> <span>Ngân hàng câu hỏi</span></a></li>
          <li><a href="questionBank"><i class="fa fa-question"></i> <span>Soạn đề thi</span></a></li>
@@ -276,8 +247,8 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Sinh viên</a></li>
-            <li><a href="#">Lớp học</a></li>
+            <li><a href="#">Người dùng</a></li>
+            <li><a href="#">Khóa học</a></li>
             <li><a href="#">Hệ thống câu hỏi</a></li>
           </ul>
         </li>

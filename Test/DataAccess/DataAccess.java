@@ -44,7 +44,7 @@ public class DataAccess {
 		PreparedStatement statement;
 		try {
 			conn=OpenConnect();
-			statement=conn.prepareStatement(query);
+			statement=conn.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 			if (paramater!=null) {
 				int i=1;
 				for (Object item : paramater) {
