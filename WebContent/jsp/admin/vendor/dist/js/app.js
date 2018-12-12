@@ -1,4 +1,15 @@
 $(document).ready(()=>{
+	$("#sl-subject-test").change(function(){
+		let val = $(this).val();
+		let url = `CreateTest?type=getTestBySubjectId&subjectId=${val}`;
+		$.get(url,function(data,success){
+			if(success){
+				$("#accordion-question-test").html(data);
+			}
+		})
+	});
+	
+	
 	let subjectId = $("#sl-subject").val(); 
 	getQuestionBySubject(subjectId);
 	$("#file-question").change(function(){

@@ -238,7 +238,7 @@ desired effect
         <li class="active"><a href="QuanLiSinhVien"><i class="fa fa-graduation-cap"></i> <span>Người dùng</span></a></li>
         <li><a href="QuanLyKhoaHoc"><i class="fa fa-home"></i> <span>Khóa học</span></a></li>
         <li><a href="questionBank"><i class="fa fa-question"></i> <span>Ngân hàng câu hỏi</span></a></li>
-         <li><a href="questionBank"><i class="fa fa-question"></i> <span>Soạn đề thi</span></a></li>
+         <li><a href="CreateTest"><i class="fa fa-question"></i> <span>Soạn đề thi</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Import dữ liệu</span>
             <span class="pull-right-container">
